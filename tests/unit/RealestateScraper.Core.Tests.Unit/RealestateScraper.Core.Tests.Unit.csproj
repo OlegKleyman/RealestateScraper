@@ -5,10 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fizzler.Systems.HtmlAgilityPack" Version="1.2.1" />
     <PackageReference Include="FluentAssertions" Version="5.10.3" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.11.29" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="NSubstitute" Version="4.2.2" />
+    <PackageReference Include="RichardSzalay.MockHttp" Version="6.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\src\RealestateScraper.Core\RealestateScraper.Core.csproj" />
   </ItemGroup>
 
 </Project>
