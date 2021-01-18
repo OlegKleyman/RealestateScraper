@@ -13,8 +13,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="20.0.0" />
     <PackageReference Include="Fizzler.Systems.HtmlAgilityPack" Version="1.2.1" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.29" />
+    <PackageReference Include="System.IO.Abstractions.TestingHelpers" Version="13.2.9" />
   </ItemGroup>
 
 </Project>

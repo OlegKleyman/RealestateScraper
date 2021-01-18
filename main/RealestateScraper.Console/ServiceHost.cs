@@ -9,21 +9,20 @@ namespace RealestateScraper.Console
     {
         private readonly IHostApplicationLifetime _lifetime;
         private readonly IRealestateService _realestateService;
-        private readonly ICsvWriter _csvWriter;
+        private readonly IOutputWriter _outputWriter;
 
-        public ServiceHost(IHostApplicationLifetime lifetime, IRealestateService realestateService, ICsvWriter csvWriter)
+        public ServiceHost(IHostApplicationLifetime lifetime, IRealestateService realestateService, IOutputWriter outputWriter, string outputPath)
         {
             _lifetime = lifetime;
             _realestateService = realestateService;
-            _csvWriter = csvWriter;
+            _outputWriter = outputWriter;
         }
 
-        public Task StartAsync(CancellationToken cancellationToken)
+        public async Task StartAsync(CancellationToken cancellationToken)
         {
-            var results = _realestateService.GetAllAsync();
-            _csvWriter.WriteAsync(results);
+            var results = await _realestateService.GetAllAsync();
+            await _outputWriter.WriteAsync("output", results);
             _lifetime.StopApplication();
-            return Task.CompletedTask;
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
